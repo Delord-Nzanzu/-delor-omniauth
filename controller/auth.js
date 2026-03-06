@@ -24,7 +24,7 @@ export const refreshToken = async (appId, refreshToken) => {
 
   try {
     const response = await fetch(url, {
-      method: "POST",
+      method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ refreshToken, appid: appId }),
     });
