@@ -41,6 +41,8 @@ yarn add @delord/omniauth
 
 ## 🚀 Utilisation Rapide
 
+### Login
+
 ```bash
 import omniauth from '@delord/omniauth';
 
@@ -51,11 +53,26 @@ const auth = omniauth("votre_appid_unique");
 const handleLogin = async (email, password) => {
   try {
     const result = await auth.login(email, password);
+    return result;
+  } catch (error) {
+    console.error("Erreur OmniAuth :", error.message);
+  }
+};
 
-    console.log("Connexion réussie !");
-    console.log("Token JWT :", result.token);
-    console.log("Données utilisateur :", result.user);
+```
 
+### RefreshToken
+
+```bash
+import omniauth from '@delord/omniauth';
+
+// 1. Initialisation avec votre ID d'application
+const auth = omniauth("votre_appid_unique");
+
+// 2. RefreShToken directe
+const handleRefresh = async (email, password) => {
+  try {
+     const result = await omniauthApp.refreshTokens(req.body.refreshToken);
     return result;
   } catch (error) {
     console.error("Erreur OmniAuth :", error.message);
@@ -91,5 +108,3 @@ OmniAuth repose sur une structure en **trois couches** pour garantir l'étanché
 3.  **Utilisateurs** : Base centrale reliée dynamiquement aux applications via leurs niveaux d'accès.
 
 ---
-
-**Développé par Nzanzu Wayire Delord**
