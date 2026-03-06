@@ -1,6 +1,6 @@
 # 🚀 OmniAuth
 
-[![version](https://img.shields.io)](https://www.npmjs.com)
+[![NPM](NPM)](https://www.npmjs.com/package/@delord/omniauth)
 [![License: MIT](https://img.shields.io)](https://opensource.org)
 
 **OmniAuth** est un Identity Provider (IdP) centralisé. Ce SDK permet aux développeurs d'intégrer l'authentification multi-projets en quelques secondes, en gérant la communication sécurisée avec l'API OmniAuth.
