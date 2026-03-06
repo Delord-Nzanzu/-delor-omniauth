@@ -1,22 +1,31 @@
 // src/controllers/auth.js
 const baseUrl = "https://api.omniauth.taliasante.com";
 export const auth = async (appId, login, password) => {
-  const response = await fetch(`${baseUrl}/auth/application`, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ login, passwords: password, appid: appId }),
-  });
+  try {
+    const response = await fetch(`${baseUrl}/auth/application`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ login, passwords: password, appid: appId }),
+    });
 
-  // Vérification du type de contenu
-  const contentType = response.headers.get("content-type");
-  if (!contentType || !contentType.includes("application/json")) {
-    throw new Error("Le serveur n'a pas renvoyé de JSON.");
+    // Vérification du type de contenu
+    const contentType = response.headers.get("content-type");
+    if (!contentType || !contentType.includes("application/json")) {
+      throw new Error("Le serveur n'a pas renvoyé de JSON.");
+    }
+
+    const data = await response.json();
+    if (!response.ok) throw new Error(data.message || "Erreur d'auth");
+
+    return data;
+  } catch (error) {
+    if (error.message.includes("fetch failed")) {
+      throw new Error(
+        "Impossible de contacter le serveur. Vérifie ta connexion fetch failed.",
+      );
+    }
+    throw error;
   }
-
-  const data = await response.json();
-  if (!response.ok) throw new Error(data.message || "Erreur d'auth");
-
-  return data;
 };
 
 export const refreshToken = async (appId, refreshToken) => {
@@ -64,7 +73,7 @@ export const refreshToken = async (appId, refreshToken) => {
     // 4. Erreur de connexion (Coupure internet, mauvais domaine)
     if (error.message.includes("fetch failed")) {
       throw new Error(
-        "Impossible de contacter le serveur. Vérifie ta connexion ou l'URLBase.",
+        "Impossible de contacter le serveur. Vérifie ta connexion fetch failed.",
       );
     }
     throw error;
