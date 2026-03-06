@@ -20,11 +20,11 @@ export const auth = async (appId, login, password) => {
 };
 
 export const refreshToken = async (appId, refreshToken) => {
-  const url = `${baseUrl}/refresh/application`;
+  const url = `${baseUrl}/auth/refresh/application`;
 
   try {
     const response = await fetch(url, {
-      method: "PUT",
+      method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ refreshToken, appid: appId }),
     });
