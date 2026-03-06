@@ -24,7 +24,10 @@ export const refreshToken = async (appId, refreshToken) => {
   const response = await fetch(`${baseUrl}/refresh/application`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ refreshToken: refreshToken, appid: appId }),
+    body: JSON.stringify({
+      refreshToken: refreshToken,
+      appid: appId,
+    }),
   });
 
   // Vérification du type de contenu

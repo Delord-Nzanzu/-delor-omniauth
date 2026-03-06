@@ -12,14 +12,14 @@ export const authRouter = (appId) => {
       }
       return auth(appId, login, password);
     },
-    refreshToken: async (refreshToken) => {
+    refreshTokens: async (refresh) => {
       if (!appId) {
         return {
           success: false,
           message: "L'identifiant 'appId' est obligatoire pour OmniAuth.",
         };
       }
-      return refreshToken(appId, refreshToken);
+      return refreshToken(appId, refresh);
     },
   };
 };
