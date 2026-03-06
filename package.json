@@ -1,0 +1,23 @@
+{
+  "name": "omniauth",
+  "version": "1.0.0",
+  "description": "SDK d'authentification centralisée pour OmniAuth",
+  "main": "app.js",
+  "type": "module",
+  "exports": {
+    ".": {
+      "import": "./app.js",
+      "require": "./app.js"
+    }
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "auth",
+    "omniauth",
+    "login"
+  ],
+  "author": "Nzanzu Wayire Delord",
+  "license": "MIT"
+}
