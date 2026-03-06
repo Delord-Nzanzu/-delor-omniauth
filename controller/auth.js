@@ -20,7 +20,7 @@ export const auth = async (appId, login, password) => {
 };
 
 export const refreshToken = async (appId, refreshToken) => {
-  const url = `${baseUrl}/refresh/application`;
+  const url = "https://api.omniauth.taliasante.com/refresh/application";
 
   try {
     const response = await fetch(url, {
