@@ -21,7 +21,7 @@ export const auth = async (appId, login, password) => {
 
 export const refreshToken = async (appId, refreshToken) => {
   const baseUrl = "https://api.omniauth.taliasante.com";
-  const response = await fetch(`${baseUrl}/auth/application`, {
+  const response = await fetch(`${baseUrl}/refresh/application`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ refreshToken: refreshToken, appid: appId }),

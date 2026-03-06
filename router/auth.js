@@ -1,4 +1,4 @@
-import { auth } from "../controller/auth.js";
+import { auth, refreshToken } from "../controller/auth.js";
 
 export const authRouter = (appId) => {
   return {
@@ -11,6 +11,15 @@ export const authRouter = (appId) => {
         };
       }
       return auth(appId, login, password);
+    },
+    refreshToken: async (refreshToken) => {
+      if (!appId) {
+        return {
+          success: false,
+          message: "L'identifiant 'appId' est obligatoire pour OmniAuth.",
+        };
+      }
+      return refreshToken(appId, refreshToken);
     },
   };
 };
