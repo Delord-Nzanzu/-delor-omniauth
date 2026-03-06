@@ -1,9 +1,9 @@
-# 🚀 OmniAuth JS SDK
+# 🚀 OmniAuth
 
 [![version](https://img.shields.io)](https://www.npmjs.com)
 [![License: MIT](https://img.shields.io)](https://opensource.org)
 
-**OmniAuth** est un Identity Provider (IdP) centralisé. Ce SDK permet aux développeurs d'intégrer l'authentification multi-projets en quelques secondes, en gérant la communication sécurisée avec l'API OmniAuth de Talia Santé.
+**OmniAuth** est un Identity Provider (IdP) centralisé. Ce SDK permet aux développeurs d'intégrer l'authentification multi-projets en quelques secondes, en gérant la communication sécurisée avec l'API OmniAuth.
 
 ---
 
@@ -16,20 +16,33 @@
 
 ---
 
+---
+
+## 🛠️ Avant de commencer (Prérequis)
+
+Avant d'installer le SDK, vous devez configurer votre environnement sur la console OmniAuth :
+
+1.  **Créer un compte** : Rendez-vous sur [omniauth](https://omniauth.taliasante.com) pour vous inscrire.
+2.  **Configurer votre Application** : Dans le menu **Applications**, créez un nouveau projet pour générer votre `appid` unique.
+3.  **Définir les Accès** : Allez dans **Niveaux d'accès d'application** pour créer les rôles (Admin, User, etc.) propres à votre application.
+4.  **Ajouter des Utilisateurs** : Dans le menu **Utilisateurs d'application**, liez vos comptes à l'application et attribuez-leur leurs niveaux d'accès.
+
+---
+
 ## 📦 Installation
 
 Installez le SDK via votre gestionnaire de paquets préféré :
 
 ```bash
-npm install omniauth
+npm install @delord/omniauth
 # ou
-yarn add omniauth
+yarn add @delord/omniauth
 ```
 
 ## 🚀 Utilisation Rapide
 
 ```bash
-import omniauth from 'omniauth';
+import omniauth from '@delord/omniauth';
 
 // 1. Initialisation avec votre ID d'application
 const auth = omniauth("votre_appid_unique");

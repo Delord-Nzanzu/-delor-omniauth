@@ -1,6 +1,6 @@
 {
-  "name": "omniauth",
-  "version": "1.0.0",
+  "name": "@delord/omniauth",
+  "version": "1.0.1",
   "description": "SDK d'authentification centralisée pour OmniAuth",
   "main": "app.js",
   "type": "module",
