@@ -35,6 +35,7 @@ export const createApplication = async (
   fkorg,
   appId,
   passwords,
+  fkapp,
 ) => {
   const response = await fetch(`${baseUrl}/admin/save/application`, {
     method: "POST",
@@ -42,7 +43,7 @@ export const createApplication = async (
     body: JSON.stringify({
       idpersonne: idpersonne,
       fkorg: fkorg,
-      fkapp: appId,
+      fkapp: fkapp,
       passwords: passwords,
     }),
   });

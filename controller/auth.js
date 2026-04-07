@@ -19,6 +19,7 @@ export const auth = async (appId, login, password) => {
 
     return data;
   } catch (error) {
+    console.log("Error", error);
     if (error.message.includes("fetch failed")) {
       throw new Error(
         "Impossible de contacter le serveur. Vérifie ta connexion fetch failed.",

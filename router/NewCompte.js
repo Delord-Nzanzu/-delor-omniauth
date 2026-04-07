@@ -12,7 +12,7 @@ export const createComppteRouter = (appId) => {
         return createPersonne(identite, genre, phone, email, file);
       }
     },
-    affecetPersonneToApp: async (idpersonne, fkorg, passwords) => {
+    affecetPersonneToApp: async (idpersonne, fkorg, passwords, fkapp) => {
       if (!appId) {
         return {
           success: false,
@@ -25,7 +25,7 @@ export const createComppteRouter = (appId) => {
             "L'identifiant 'fkorg' est obligatoire l'affectation de l'utilisateur sur OmniAuth.",
         };
       } else {
-        return createApplication(idpersonne, fkorg, appId, passwords);
+        return createApplication(idpersonne, fkorg, appId, passwords, fkapp);
       }
     },
   };
