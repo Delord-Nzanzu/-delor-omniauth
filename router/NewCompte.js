@@ -1,4 +1,7 @@
-import { createPersonne, createApplication } from "../controller/NewCompte.js";
+import {
+  createPersonne,
+  affectToApplication,
+} from "../controller/NewCompte.js";
 
 export const createComppteRouter = (appId) => {
   return {
@@ -12,7 +15,7 @@ export const createComppteRouter = (appId) => {
         return createPersonne(identite, genre, phone, email, file);
       }
     },
-    affecetPersonneToApp: async (idpersonne, fkorg, passwords, fkapp) => {
+    affecetToApp: async (idpersonne, fkorg, passwords, fkapp) => {
       if (!appId) {
         return {
           success: false,
@@ -25,7 +28,7 @@ export const createComppteRouter = (appId) => {
             "L'identifiant 'fkorg' est obligatoire l'affectation de l'utilisateur sur OmniAuth.",
         };
       } else {
-        return createApplication(idpersonne, fkorg, appId, passwords, fkapp);
+        return affectToApplication(idpersonne, fkorg, appId, passwords, fkapp);
       }
     },
   };

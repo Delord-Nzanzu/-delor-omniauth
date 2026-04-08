@@ -30,7 +30,7 @@ export const createPersonne = async (identite, genre, phone, email, file) => {
   return data;
 };
 
-export const createApplication = async (
+export const affectToApplication = async (
   idpersonne,
   fkorg,
   appId,
