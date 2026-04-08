@@ -105,7 +105,7 @@ const createData = async () => {
   }
 };
 
-// 3 affecter le nouveau utilisateur dans un dans une application
+// 3 affecter le nouveau utilisateur dans une application
 const affectuser = async () => {
   try {
      const result = await omniauthApp.affecetPersonneToApp(
