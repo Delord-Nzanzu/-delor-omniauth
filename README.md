@@ -81,6 +81,47 @@ const handleRefresh = async (email, password) => {
 
 ```
 
+### Nouveau compte
+
+```bash
+import omniauth from '@delord/omniauth';
+
+// 1. Initialisation avec votre ID d'application
+const auth = omniauth("votre_appid_unique");
+
+// 2. Create new compte
+const createData = async () => {
+  try {
+     const result = await omniauthApp.create(
+      req.body.identite,
+      req.body.genre,
+      req.body.phone,
+      req.body.email,
+      req.file,
+    );
+    return result;
+  } catch (error) {
+    console.error("Erreur OmniAuth :", error.message);
+  }
+};
+
+// 3 affecter le nouveau utilisateur dans un dans une application
+const affectuser = async () => {
+  try {
+     const result = await omniauthApp.affecetPersonneToApp(
+      req.body.idpersonne,
+      req.body.fkorg,
+      req.body.passwords,
+      req.body.fkapp,
+    );
+    return result;
+  } catch (error) {
+    console.error("Erreur OmniAuth :", error.message);
+  }
+};
+
+```
+
 ## 🛠️ Référence de l'API
 
 ### `omniauth(appId)`
