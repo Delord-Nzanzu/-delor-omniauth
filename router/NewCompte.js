@@ -5,14 +5,21 @@ import {
 
 export const createComppteRouter = (appId) => {
   return {
-    create: async (identite, genre, phone, email, file) => {
+    create: async (identite, genre, phone, email, file, typeutilisateur) => {
       if (!appId) {
         return {
           success: false,
           message: "L'identifiant 'appId' est obligatoire pour OmniAuth.",
         };
       } else {
-        return createPersonne(identite, genre, phone, email, file);
+        return createPersonne(
+          identite,
+          genre,
+          phone,
+          email,
+          file,
+          typeutilisateur,
+        );
       }
     },
     affecetToApp: async (idpersonne, fkorg, passwords, fkapp) => {

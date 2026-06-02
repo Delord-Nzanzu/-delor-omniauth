@@ -1,11 +1,19 @@
 const baseUrl = "https://api.omniauth.taliasante.com";
 
-export const createPersonne = async (identite, genre, phone, email, file) => {
+export const createPersonne = async (
+  identite,
+  genre,
+  phone,
+  email,
+  file,
+  typeutilisateur,
+) => {
   const formData = new FormData();
   formData.append("identite", identite);
   formData.append("genre", genre);
   formData.append("phone", phone);
   formData.append("email", email);
+  formData.append("typeutilisateur", typeutilisateur);
   // formData.append("file", file);
   formData.append("datecreate", new Date().toISOString());
   if (file && file.buffer) {
