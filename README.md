@@ -98,6 +98,7 @@ const createData = async () => {
       req.body.phone,
       req.body.email,
       req.file,
+      req.typeutilisateur
     );
     return result;
   } catch (error) {
