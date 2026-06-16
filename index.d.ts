@@ -14,7 +14,7 @@ declare module "@delord/omniauth" {
       passwords: string,
       fkapp: string,
     ): Promise<any>;
-    getAllPersonne(idOrganisation: string, token: string): Promise<any>;
+    getAllPersonnes(idOrganisation: string, token: string): Promise<any>;
   }
 
   export interface AuthRouter {
