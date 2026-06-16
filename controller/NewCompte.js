@@ -45,7 +45,7 @@ export const createPersonne = async (
 export const getAllPersonne = async (appId, idOrganisation, token) => {
   try {
     const response = await fetch(
-      `${baseUrl}/admin/${appId}/${idOrganisation}`,
+      `${baseUrl}/admin/${idOrganisation}/${appId}`,
       {
         method: "GET",
         headers: {
