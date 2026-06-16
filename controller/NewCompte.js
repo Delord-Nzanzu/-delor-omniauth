@@ -39,21 +39,28 @@ export const createPersonne = async (
 };
 
 export const getAllPersonne = async (appId, idOrganisation, token) => {
-  const response = await fetch(`${baseUrl}/admin/${appId}/${idOrganisation}`, {
-    method: "GET",
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: `Bearer ${token}`,
-    },
-  });
+  try {
+    const response = await fetch(
+      `${baseUrl}/admin/${appId}/${idOrganisation}`,
+      {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+      },
+    );
 
-  const data = await response.json();
+    const data = await response.json();
 
-  if (!response.ok) {
-    throw new Error(data.message || "Erreur de récupération des personnes");
+    if (!response.ok) {
+      throw new Error(data.message || "Erreur de récupération des personnes");
+    }
+
+    return data;
+  } catch (error) {
+    throw new Error(error.message || "Impossible de contacter le serveur");
   }
-
-  return data;
 };
 
 export const affectToApplication = async (
