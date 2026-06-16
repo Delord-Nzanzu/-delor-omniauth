@@ -39,7 +39,7 @@ export const createComppteRouter = (appId) => {
         return affectToApplication(idpersonne, fkorg, appId, passwords, fkapp);
       }
     },
-    getAllPersonnes: async (appId, idOrganisation, token) => {
+    getAllPersonnes: async (idOrganisation, token) => {
       if (!appId) {
         return {
           success: false,
