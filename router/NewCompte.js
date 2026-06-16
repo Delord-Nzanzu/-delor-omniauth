@@ -1,6 +1,7 @@
 import {
   createPersonne,
   affectToApplication,
+  getAllPersonne,
 } from "../controller/NewCompte.js";
 
 export const createComppteRouter = (appId) => {
@@ -36,6 +37,22 @@ export const createComppteRouter = (appId) => {
         };
       } else {
         return affectToApplication(idpersonne, fkorg, appId, passwords, fkapp);
+      }
+    },
+    getAllPersonnes: async (appId, idOrganisation, token) => {
+      if (!appId) {
+        return {
+          success: false,
+          message: "L'identifiant 'appId' est obligatoire pour OmniAuth.",
+        };
+      } else if (!idOrganisation) {
+        return {
+          success: false,
+          message:
+            "L'identifiant 'idOrganisation' est obligatoire pour récupérer les personnes.",
+        };
+      } else {
+        return getAllPersonne(appId, idOrganisation, token);
       }
     },
   };

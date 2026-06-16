@@ -38,6 +38,24 @@ export const createPersonne = async (
   return data;
 };
 
+export const getAllPersonne = async (appId, idOrganisation, token) => {
+  const response = await fetch(`${baseUrl}/admin/${appId}/${idOrganisation}`, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+  });
+
+  const data = await response.json();
+
+  if (!response.ok) {
+    throw new Error(data.message || "Erreur de récupération des personnes");
+  }
+
+  return data;
+};
+
 export const affectToApplication = async (
   idpersonne,
   fkorg,
