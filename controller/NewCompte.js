@@ -42,7 +42,7 @@ export const createPersonne = async (
   }
 };
 
-export const getAllPersonne = async (appId, idOrganisation, token) => {
+export const getAllPersonne = async (appId, idOrganisation) => {
   try {
     const response = await fetch(
       `${baseUrl}/admin/all/${idOrganisation}/${appId}`,

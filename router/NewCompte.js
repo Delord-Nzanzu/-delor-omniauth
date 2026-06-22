@@ -39,7 +39,7 @@ export const createComppteRouter = (appId) => {
         return affectToApplication(idpersonne, fkorg, appId, passwords, fkapp);
       }
     },
-    getAllPersonnes: async (idOrganisation, token) => {
+    getAllPersonnes: async (idOrganisation) => {
       if (!appId) {
         return {
           success: false,
@@ -52,7 +52,7 @@ export const createComppteRouter = (appId) => {
             "L'identifiant 'idOrganisation' est obligatoire pour récupérer les personnes.",
         };
       } else {
-        return getAllPersonne(appId, idOrganisation, token);
+        return getAllPersonne(appId, idOrganisation);
       }
     },
   };
