@@ -39,11 +39,12 @@ export const createComppteRouter = (appId) => {
         return affectToApplication(idpersonne, fkorg, appId, passwords, fkapp);
       }
     },
-    getAllPersonnes: async (idOrganisation) => {
-      if (!appId) {
+    getAllPersonnes: async (idOrganisation, fkapplication) => {
+      if (!fkapplication) {
         return {
           success: false,
-          message: "L'identifiant 'appId' est obligatoire pour OmniAuth.",
+          message:
+            "L'identifiant 'fkapplication' est obligatoire pour OmniAuth.",
         };
       } else if (!idOrganisation) {
         return {
@@ -52,7 +53,7 @@ export const createComppteRouter = (appId) => {
             "L'identifiant 'idOrganisation' est obligatoire pour récupérer les personnes.",
         };
       } else {
-        return getAllPersonne(appId, idOrganisation);
+        return getAllPersonne(idOrganisation, fkapplication);
       }
     },
   };

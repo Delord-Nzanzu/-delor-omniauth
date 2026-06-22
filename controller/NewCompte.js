@@ -42,10 +42,10 @@ export const createPersonne = async (
   }
 };
 
-export const getAllPersonne = async (appId, idOrganisation) => {
+export const getAllPersonne = async (idOrganisation, fkapplication) => {
   try {
     const response = await fetch(
-      `${baseUrl}/admin/all/${idOrganisation}/${appId}`,
+      `${baseUrl}/admin/all/${idOrganisation}/${fkapplication}`,
       {
         method: "GET",
         headers: {

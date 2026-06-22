@@ -16,7 +16,7 @@ declare module "@delord/omniauth" {
     ): Promise<any>;
     getAllPersonnes(
       idOrganisation: string,
-      // token: string
+      fkapplication: string,
     ): Promise<any>;
   }
 
