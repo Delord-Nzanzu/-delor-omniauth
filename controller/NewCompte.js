@@ -50,7 +50,7 @@ export const getAllPersonne = async (appId, idOrganisation, token) => {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
+          // Authorization: `Bearer ${token}`,
         },
       },
     );
